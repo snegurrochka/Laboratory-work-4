@@ -17,7 +17,5 @@ jobs:
     steps:
           - name: Print MySQL Version
             run: mysql --version
-          - name: Print MongoDB Version
-            run: mongod --version
           - name: Print PostgreSQL Version
             run: psql --version 
