@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Проект з моніторингу",
+  "type": "object",
+  "properties": {
+    "Скульптор-користувач": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 15,
+          "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄє]{1,15}$"
+        },
+        "surname": {
+          "type": "string",
+          "maxLength": 15,
+          "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄє]{1,15}$"
+        },
+        "phone_number": {
+          "type": "string",
+          "pattern": "^\\+\\d{12}$"
+        },
+        "profession": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "surname", "phone_number"]
+    },
+    "Система моніторингу температури": {
+      "type": "object",
+      "properties": {
+        "currentTemperature": {
+          "type": "string",
+          "pattern": "^\\+\\d{1,2}\\.\\d$"
+        },
+        "currentHumidity": {
+          "type": "string",
+          "pattern": "^\\d{1,3}%$"
+        }
+      },
+      "required": ["currentTemperature", "currentHumidity"]
+    },
+    "Фінансовий консультант": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 15,
+          "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄє]{1,15}$"
+        },
+        "surname": {
+          "type": "string",
+          "maxLength": 15,
+          "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄє]{1,15}$"
+        },
+        "phone_number": {
+          "type": "string",
+          "pattern": "^\\+\\d{12}$"
+        }
+      },
+      "required": ["name", "surname", "phone_number"]
+    },
+    "Освітні ресурси": {
+      "type": "object",
+      "properties": {
+        "materialList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 50,
+                "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄє0-9 ]{1,50}$"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["відео", "стаття"]
+              },
+              "link": {
+                "type": "string",
+                "pattern": "^(http|https)://[a-zA-Z0-9./]+$"
+              }
+            },
+            "required": ["name", "type", "link"]
+          }
+        }
+      },
+      "required": ["materialList"]
+    }
+  },
+  "required": ["Скульптор-користувач", "Система моніторингу температури", "Освітні ресурси", "Фінансовий консультант"]
+}
+
+
+name: Print Software Versions
+on: 
+  push:
+      branches: main
+jobs:
+  printSoftwareVersions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Software Version
+        run: |
+          echo "Python Version: 3.12.0"
+          echo "Node.js Version: 20.0.0"
+          echo "Java Version: 21.0.0"
+  printDatabaseVersions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Database Version
+        run: |
+          echo "PostgreSQL Version: 16.0"
+          echo "MySQL Version: 8.0.33"
+          echo "SQLite Version: 3.42.0"
