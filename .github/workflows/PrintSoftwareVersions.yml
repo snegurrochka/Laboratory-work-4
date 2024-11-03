@@ -6,8 +6,6 @@ jobs:
   printSoftwareVersions:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Software Version
-        run: 
           - name: Print Python Version
             run: python --version
           - name: Print Java Version
@@ -17,8 +15,6 @@ jobs:
   printDatabaseVersions:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Database Version
-        run: 
           - name: Print MySQL Version
             run: mysql --version
           - name: Print MongoDB Version
