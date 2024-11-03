@@ -19,3 +19,5 @@ jobs:
             run: mysql --version
           - name: Print PostgreSQL Version
             run: psql --version 
+          - name: Print SQLite Version
+            run: sqlite3 --version            
