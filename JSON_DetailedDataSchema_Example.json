@@ -6,7 +6,7 @@
     "Скульптор-користувач": {
       "type": "object",
       "properties": {
-        "name": {
+        "name$": {
           "type": "string",
           "maxLength": 15,
           "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄє]{1,15}$"
